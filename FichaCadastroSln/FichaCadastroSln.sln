@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FichaCadastroApi", "FichaCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FichaCadastroTest", "FichaCadastroTest\FichaCadastroTest.csproj", "{E7348B16-0135-4C21-90D0-D90645BDB7AB}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0E5C0DAB-D9EC-4E86-A65A-718B79E1E15A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E7348B16-0135-4C21-90D0-D90645BDB7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7348B16-0135-4C21-90D0-D90645BDB7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7348B16-0135-4C21-90D0-D90645BDB7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E5C0DAB-D9EC-4E86-A65A-718B79E1E15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E5C0DAB-D9EC-4E86-A65A-718B79E1E15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E5C0DAB-D9EC-4E86-A65A-718B79E1E15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E5C0DAB-D9EC-4E86-A65A-718B79E1E15A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

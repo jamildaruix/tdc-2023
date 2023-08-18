@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  fichacadastroapi:
+    image: ${DOCKER_REGISTRY-}fichacadastroapi
+    build:
+      context: .
+      dockerfile: FichaCadastroApi/Dockerfile
