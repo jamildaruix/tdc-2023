@@ -9,11 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        project:
-          - FichaCadastroTest
-
     steps:
     - name: Checkout do Código
       uses: actions/checkout@v2
@@ -23,9 +18,9 @@ jobs:
       with:
         dotnet-version: 7.x 
 
-    - name: Restaurar Pacotes e Executar Testes
+    - name: Restaurar Pacotes e Executar Testes Unitários
+      working-directory: ./FichaCadastroSln/FichaCadastroTest
       run: |
-        cd ${{ matrix.project }}
         dotnet restore
         dotnet test -v q  # Usando verbosidade "quiet"
 
