@@ -226,7 +226,7 @@ Abrir o SQL Manager para acessar o SQL Server configurado da imagem
 
 2. Abra o terminal na pasta e execute os comandos:
 
-``` C#
+``` CSharp
 dotnet test -v q
 reportgenerator -reports:.\lcov\coverage.opencover.xml -targetdir:..\..\coverage-report\ -reporttypes:Html
 ```
