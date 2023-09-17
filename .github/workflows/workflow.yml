@@ -3,14 +3,17 @@ name: CI
 on:
   push:
     branches:
-      - main 
+      - main
+  pull_request:
+    branches:
+     - feature-*
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout do Código
+    - name: Checkout do Repositório
       uses: actions/checkout@v2
 
     - name: Configuração do .NET Core
@@ -25,11 +28,18 @@ jobs:
         dotnet test -v q  # Usando verbosidade "quiet"
 
     - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
+    - name: SonarQube Quality Gate check
+      id: sonarqube-quality-gate-check
+      uses: sonarsource/sonarqube-quality-gate-action@master
+      timeout-minutes: 5
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} #OPTIONAL
 
-    #- name: Publicar Artefatos (opcional)
-      # Adicione esta etapa se desejar publicar artefatos, como resultados de testes
-      # Você pode configurar essa etapa para carregar resultados de testes para um local de armazenamento ou serviço de CI/CD.
+    - name: Show SonarQube Quality Gate Status
+      run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
