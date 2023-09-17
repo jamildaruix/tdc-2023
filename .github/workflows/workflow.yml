@@ -27,13 +27,13 @@ jobs:
         dotnet restore
         dotnet test -v q  # Usando verbosidade "quiet"
 
-    - name: SonarCloud Scan
+    - name: SonarCloud Scanner
       uses: SonarSource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
-    - name: SonarQube Quality Gate check
+    - name: SonarQube Quality Gate Check
       id: sonarqube-quality-gate-check
       uses: sonarsource/sonarqube-quality-gate-action@master
       timeout-minutes: 5
@@ -41,5 +41,5 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} #OPTIONAL
 
-    - name: Show SonarQube Quality Gate Status
+    - name: SonarQube Quality Gate Status
       run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
