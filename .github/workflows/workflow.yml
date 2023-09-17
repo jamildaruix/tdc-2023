@@ -24,6 +24,12 @@ jobs:
         dotnet restore
         dotnet test -v q  # Usando verbosidade "quiet"
 
+    - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    
+
     #- name: Publicar Artefatos (opcional)
       # Adicione esta etapa se desejar publicar artefatos, como resultados de testes
       # Você pode configurar essa etapa para carregar resultados de testes para um local de armazenamento ou serviço de CI/CD.
