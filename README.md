@@ -219,3 +219,14 @@ Abrir o SQL Manager para acessar o SQL Server configurado da imagem
 - Server name: `host.docker.internal,1433`
     - Quando estiver usando um ambiente de máquina virtual ou WSL (Windows Subsystem for Linux) para executar o Docker no macOS.
  
+
+## Comandos para executar os teste com cobertura e gerar o relatórios em html
+
+1. Acess o projeto de test chamado FichaCadastroTest, dentro vai existir duas pastas lcov e coverange-report
+
+2. Abra o terminal na pasta e execute os comandos:
+
+``` C#
+dotnet test -v q
+reportgenerator -reports:.\lcov\coverage.opencover.xml -targetdir:..\..\coverage-report\ -reporttypes:Html
+```
