@@ -23,8 +23,6 @@ builder.Configuration
 
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
 
-//builder.Services.AddDbContext<FichaCadastroDbContext>(options => options.UseSqlServer(connectionString));
-
 builder.Services.AddDbContext<FichaCadastroDbContext>(options => options.UseInMemoryDatabase("TDC"));
 
 

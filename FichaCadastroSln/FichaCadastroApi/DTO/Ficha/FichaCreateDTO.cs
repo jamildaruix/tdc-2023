@@ -2,7 +2,7 @@
 
 namespace FichaCadastroApi.DTO.Ficha
 {
-    public class FichaCreateDTO
+    public record FichaCreateDTO
     {
         [Required(ErrorMessage = "Campo Obrigatório")]
         [MaxLength(500, ErrorMessage = "Este campo aceita até 500 caracteres")]
